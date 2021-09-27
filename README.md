@@ -62,6 +62,3 @@ This sample ***can't understand:***
 Only for "On-Trigger."
 
 And HAL_GetTick() overflow is not understand.
-
-# Test environment
-- 
