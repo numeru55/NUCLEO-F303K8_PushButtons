@@ -23,7 +23,7 @@
 
  enum fig
 
- INIT     [A] Pushed any button. Starts time count.
+ INIT     [A] Initial state
  PRESSED  [B] Pushed any button. Starts time count.
  PRESSING [C] All buttons are pushed, and de-bouced. Return key bit.
 		      For example, 0b11 means "2 buttons are pushed in almost same time."
