@@ -35,7 +35,7 @@ void Button_Clear(){
 
 uint32_t Button_Loop(){
 	uint32_t current_key=0xffffffff;
-	for (int i=MAX_BUTTONS-1; (i>0)|(i==0); i--) {
+	for (int i=BUTTON_NUM-1; (i>0)|(i==0); i--) {
 		current_key = (current_key<<1) |
 				(HAL_GPIO_ReadPin(BUTTON_BUFFER[i].GPIOx, BUTTON_BUFFER[i].GPIO_Pin));
 	}
