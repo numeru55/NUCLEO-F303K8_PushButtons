@@ -86,5 +86,5 @@ uint32_t Button_Loop(){
 			return 0;
 			break;
 	}
-
+	return 0; // never reach
 }
