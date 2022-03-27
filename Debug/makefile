@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
+# Toolchain: GNU Tools for STM32 (10.3-2021.10)
 ################################################################################
 
 -include ../makefile.init
@@ -12,7 +12,6 @@ RM := rm -rf
 -include Drivers/STM32F3xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
--include subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -44,14 +43,14 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 EXECUTABLES += \
 NUCLEO-F303K8_PushButtons.elf \
 
+MAP_FILES += \
+NUCLEO-F303K8_PushButtons.map \
+
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
 NUCLEO-F303K8_PushButtons.list \
-
-OBJCOPY_BIN += \
-NUCLEO-F303K8_PushButtons.bin \
 
 
 # All Target
@@ -61,8 +60,8 @@ all: main-build
 main-build: NUCLEO-F303K8_PushButtons.elf secondary-outputs
 
 # Tool invocations
-NUCLEO-F303K8_PushButtons.elf: $(OBJS) $(USER_OBJS) /Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_PushButtons/STM32F303K8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "NUCLEO-F303K8_PushButtons.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/yasunori/STM32CubeIDE/workspace_1.7.0/NUCLEO-F303K8_PushButtons/STM32F303K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NUCLEO-F303K8_PushButtons.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+NUCLEO-F303K8_PushButtons.elf NUCLEO-F303K8_PushButtons.map: $(OBJS) $(USER_OBJS) /Users/numeru55/Documents/GitHub/NUCLEO-F303K8_PushButtons/STM32F303K8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "NUCLEO-F303K8_PushButtons.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/numeru55/Documents/GitHub/NUCLEO-F303K8_PushButtons/STM32F303K8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NUCLEO-F303K8_PushButtons.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -76,17 +75,12 @@ NUCLEO-F303K8_PushButtons.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_
 	@echo 'Finished building: $@'
 	@echo ' '
 
-NUCLEO-F303K8_PushButtons.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "NUCLEO-F303K8_PushButtons.bin"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) $(SIZE_OUTPUT)$(OBJDUMP_LIST)$(EXECUTABLES)$(OBJS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(OBJCOPY_BIN) NUCLEO-F303K8_PushButtons.elf
+	-$(RM) NUCLEO-F303K8_PushButtons.elf NUCLEO-F303K8_PushButtons.list NUCLEO-F303K8_PushButtons.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
@@ -95,6 +89,6 @@ fail-specified-linker-script-missing:
 warn-no-linker-script-specified:
 	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
 
-.PHONY: all clean dependents fail-specified-linker-script-missing warn-no-linker-script-specified
+.PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified
 
 -include ../makefile.targets
